@@ -1,0 +1,11 @@
+pandas
+openai
+chardet
+rapidfuzz
+torch
+transformers
+accelerate
+openai
+tenacity
+sglang # Check https://sgl-project.github.io/start/install.html
+azure-ai-inference

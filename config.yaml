@@ -1,0 +1,49 @@
+# -----------------------------------------------------------------------------
+# Dataset Configuration
+# -----------------------------------------------------------------------------
+# Name of the dataset being used.
+dataset_name: "MovieLens 1M"
+
+# File paths for the dataset:
+item_data_path: "../data/movielens_1M/movies.csv"      # Path to the movies metadata file.
+interaction_data_path: "../data/movielens_1M/ratings.csv" # Path to the user-item interactions file (ratings).
+user_data_path: "../data/movielens_1M/users.csv"         # Path to the user profile file.
+
+# Batch size for processing data (e.g., for few-shot prompting).
+batch_size: 50
+
+# -----------------------------------------------------------------------------
+# Model Selection
+# -----------------------------------------------------------------------------
+# Choose which model type to use.
+# Options:
+#   "openai"  - Uses Azure OpenAI models.
+#   "hf"      - Uses Hugging Face models.
+#   "sglang"  - Uses SGlang-compatible models.
+#   "foundry" - Uses Azure AI Foundry models.
+model_type: "hf"
+
+# -----------------------------------------------------------------------------
+# Hugging Face / SGlang Model Configuration
+# -----------------------------------------------------------------------------
+# These settings apply if you select "hf" or "sglang" for model_type.
+model_name: "meta-llama/Llama-3.2-1B-Instruct"   # The name or identifier of the Hugging Face model.
+hf_key: "hf_"       # Hugging Face authentication token (if required for access).
+model_dir:    # Local directory for the offline model; leave empty if not using an offline version.
+
+# -----------------------------------------------------------------------------
+# Azure OpenAI Configuration
+# -----------------------------------------------------------------------------
+# These settings apply if you select "openai" for model_type.
+azure_endpoint: ""      # The Azure OpenAI service endpoint URL.
+azure_openai_key: ""    # Your Azure OpenAI API key.
+api_version: ""         # API version to use (e.g., "2023-03-15-preview").
+deployment_name: ""     # Name of the deployment or model instance in Azure OpenAI.
+
+# -----------------------------------------------------------------------------
+# Azure AI Foundry Configuration
+# -----------------------------------------------------------------------------
+# These settings apply if you select "foundry" for model_type.
+foundry_model_name: ""  # The name or identifier of the Foundry model.
+foundry_endpoint: ""    # The endpoint URL for Azure AI Foundry.
+foundry_api_key: ""     # Your API key for Azure AI Foundry.
