@@ -113,13 +113,14 @@ def evaluate_checkpoint(checkpoint_file, test_file, item_data_path, similarity_t
 
     # --- 2. Load and merge the test data with the items metadata. ---
     items_df = pd.read_csv(item_data_path)
-    test_df = pd.read_csv(
-        test_file,
-        sep="\t",
-        header=None,
-        names=["UserID", "MovieID", "Interact"],
-        usecols=["UserID", "MovieID"]
-    )
+    #test_df = pd.read_csv(
+    #    test_file,
+    #    sep="\t",
+    #    header=None,
+    #    names=["UserID", "MovieID", "Interact"],
+    #    usecols=["UserID", "MovieID"]
+    #)
+    test_df = pd.read_csv(test_file, sep="\t")
     test_df = pd.merge(test_df, items_df[['MovieID', 'Title']], on='MovieID', how='inner')
     test_titles_by_user = test_df.groupby("UserID")["Title"].apply(list).to_dict()
 
